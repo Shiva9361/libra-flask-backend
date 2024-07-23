@@ -1,0 +1,61 @@
+<html>
+  <meta charset="UTF-8" />
+  <h1>Monthly report for {{date}}</h1>
+  <br /><br />
+  <h3>Number of books in library : {{book_count}}</h3>
+  <h3>Number of sections in library: {{section_count}}</h3>
+  <div>
+    <style>
+      .aa {
+        border: 10px;
+        padding: 3px;
+        border-color: black;
+      }
+    </style>
+    {% if requests %} These are the Requests of this month <br />
+    <br />
+    <table>
+      <tr>
+        <th>Request id</th>
+        <th>User id</th>
+        <th>Book id</th>
+        <th>Pending</th>
+        <th>Opened On</th>
+        <th>Closed On</th>
+        <th>Outcome</th>
+      </tr>
+      {% for request in requests%}
+      <tr>
+        <td>{{request.id}}</td>
+        <td>{{request.user_id}}</td>
+        <td>{{request.book_id}}</td>
+        <td>{{request.pending}}</td>
+        <td>{{request.opened_on}}</td>
+        <td>{{request.closed_on}}</td>
+        <td>{{request.outcome}}</td>
+      </tr>
+    </table>
+    {%endfor%} {% endif %} {% if feedbacks %} These are the feedbacks of this
+    month <br />
+    <br />
+    <table>
+      <tr>
+        <th>User id</th>
+        <th>Book name</th>
+        <th>Rating</th>
+        <th>Feedback</th>
+        <th>On</th>
+      </tr>
+      {% for request in feedbacks%}
+      <tr>
+        <td>{{request.user_name}}</td>
+        <td>{{request.book_name}}</td>
+        <td>{{request.rating}}</td>
+        <td>{{request.feedback}}</td>
+        <td>{{request.on}}</td>
+      </tr>
+
+      {%endfor%} {% endif %}
+    </table>
+  </div>
+</html>

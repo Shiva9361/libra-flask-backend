@@ -1,0 +1,30 @@
+<html>
+  <meta charset="UTF-8" />
+  <h1>Monthly report for {{date}}</h1>
+  <h2>Name : {{user.nick_name }}</h2>
+  <h2>Email : {{user.email}}</h2>
+  <h3>You visited the site for {{ number_of_days }} day(s)!</h3>
+  <h3>Over the past month you have read {{books_read}} book(s)</h3>
+  <h3>Over the past month you have requested {{number_of_requests}} book(s)</h3>
+  <div>
+    {% if books %} These are the books you have read this month! <br />
+    {% for book in books%}
+    <style>
+      .book {
+        float: left;
+        margin: 10px;
+        margin-right: 40px;
+        padding: 10px;
+        border-style: solid;
+        border-color: dimgrey;
+        border-radius: 25px;
+        background-color: #f4f5de;
+      }
+    </style>
+    <div class="book">
+      Name : {{book.name}}<br />
+      Authors : {{book.authors}}
+    </div>
+    {%endfor%} {% endif %}
+  </div>
+</html>
