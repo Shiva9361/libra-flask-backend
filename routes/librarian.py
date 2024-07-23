@@ -8,12 +8,9 @@ import datetime
 import jwt
 import os
 from functools import wraps
-import matplotlib
 import pdfkit
 from celery.result import AsyncResult
 
-# matplotlib dosen't like to work normally in other threads
-matplotlib.use('agg')
 """
 Librarian endpoints
 """
